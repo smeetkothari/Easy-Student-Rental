@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>NEU BNB</title>
+<meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="chelseaCss.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/pure/side-menu.css">
+       <link rel="stylesheet" href="css/pure/grids-responsive-min.css">
+       <link rel="stylesheet" href="css/pure/menus.css">
+
+     <link rel="stylesheet" href="css/mystyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+
+
+<script language="javascript">
+function passwordChanged() {
+var strength = document.getElementById("strength");
+var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W).*$", "g");
+var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+var enoughRegex = new RegExp("(?=.{6,}).*", "g");
+var pwd = document.getElementById("password");
+if (pwd.value.length==0) {
+strength.innerHTML = "Enter Password!!!!";
+} else if (false == enoughRegex.test(pwd.value)) {
+strength.innerHTML = "More Characters!!!!";
+} else if (strongRegex.test(pwd.value)) {
+strength.innerHTML = "<span style='color:green'>Strong!</span>";
+} else if (mediumRegex.test(pwd.value)) {
+strength.innerHTML = "<span style='color:orange'>Medium!</span>";
+} else {
+strength.innerHTML = "<span style='color:red'>Weak!</span>";
+}
+}
+</script>
+
+
+
+</head>
+
+<body>
+<div id="mainDiv" class="container-fluid">
+
+
+
+
+<nav class="navbar navbar-default">
+   <div class="container-fluid">
+     <!-- Brand and toggle get grouped for better mobile display -->
+     <div class="navbar-header">
+       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+       <a class="navbar-brand" href="home.html" target="_top">NEU Easy Rental</a>
+     </div>
+     <!-- Collect the nav links, forms, and other content for toggling -->
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <ul class="nav navbar-nav">
+         <li ><a href="home.html">HOME<span class="sr-only">(current)</span></a></li>
+         <li><a href="about.html" target="_top">ABOUT US</a></li>
+         <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">PROFILE
+        <span class="caret"></span></a>
+         <ul class="dropdown-menu">
+          <li><a href="#">PROFILE UPDATE</a></li>
+          <li><a href="addListings.html">ADD LISTING</a></li>
+          <li><a href="myListings1.html">MY LISTINGS</a></li>
+        </ul>
+      </li>
+          <li><a href="search.html" target="_top">SEARCH</a></li>
+          <li><a href="listing.html" target="_top">ACTIVE AREAS</a></li>
+		  <li><a href="gallery.html" target="_top">GALLERY</a></li>
+		  <li><a href="features.html" target="_top">DOCUMENTATION</a></li>
+
+       </ul>
+  
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="signIn.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+
+     </div><!-- /.navbar-collapse -->
+   </div><!-- /.container-fluid -->
+ </nav>
+
+
+
+
+
+  
+
+  <div class="container-fluid" id="signUp">    
+      
+        <div id="signupbox"  style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="panel-title"><span class="title" style="font-size:20px">PROFILE</span> </div>
+                            
+                        </div>  
+                        <div class="panel-body" >
+                            <form id="signupform" class="form-horizontal" role="form">
+                                
+                                <div id="signupalert" style="display:none" class="alert alert-danger">
+                                    <p>Error:</p>
+                                    <span></span>
+                                </div>
+                                    
+                                
+                                  
+                                <div class="form-group">
+                                    <label for="email" class="col-md-3 control-label">Email</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="email" placeholder="Email Address">
+                                    </div>
+                                </div>
+                                    
+                                <div class="form-group">
+                                    <label for="firstname" class="col-md-3 control-label">First Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname" class="col-md-3 control-label">Last Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="col-md-3 control-label">Password</label>
+                                    <div class="col-md-9">
+                                        <input type="password" class="form-control" name="passwd" placeholder="Password">
+                                    </div>
+                                </div>
+                                    
+                                <div class="form-group">
+                                    <label for="icode" class="col-md-3 control-label">Re-Enter</label>
+                                    <div class="col-md-9">
+                                        <input type="password" class="form-control" name="icode" placeholder="Verify Password">
+                                    </div>
+                                </div>
+
+                                
+                                <div class="form-group">
+                                    <!-- Button -->                                        
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Update</button>
+                                       
+                                    </div>
+                                </div>
+                                
+                               
+                                    
+                                   
+                                </div>
+                                
+                                
+                                
+                            </form>
+                         </div>
+                    </div>
+
+               
+               
+                
+         </div> 
+    </div>
+
+
+
+
+
+
+  <footer class="footer-distributed">
+
+      <div class="footer-left">
+
+        <h3>NEU<span> Easy Rental</span></h3>
+
+        <p class="footer-links">
+          <a href="#">Home</a>
+          ·
+          <a href="#">Blog</a>
+          ·
+          <a href="#">Pricing</a>
+          ·
+          <a href="#">About</a>
+          ·
+          <a href="#">Faq</a>
+          ·
+          <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Company Name &copy; 2015</p>
+      </div>
+
+      <div class="footer-center">
+
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>21 Revolution Street</span> Paris, France</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>+1 555 123456</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:support@company.com">support@company.com</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span>About the company</span>
+           Student Rental is House/Property Rental Portal. Focus is on providing reliable data to home seekers.
+        </p>
+
+        <div class="footer-icons">
+
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-github"></i></a>
+
+        </div>
+
+      </div>
+
+    </footer>
+</div>
+</body>
+</html>

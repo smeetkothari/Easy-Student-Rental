@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>NEU BNB</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link href="chelseaCss.css" rel="stylesheet">
+    <link href="myListings1.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </head>
+
+<body>
+<div id="mainDiv" class="container-fluid">
+
+
+
+
+<nav class="navbar navbar-default">
+   <div class="container-fluid">
+     <!-- Brand and toggle get grouped for better mobile display -->
+     <div class="navbar-header">
+       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+       <a class="navbar-brand" href="home.html" target="_top">NEU Easy Rental</a>
+     </div>
+     <!-- Collect the nav links, forms, and other content for toggling -->
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <ul class="nav navbar-nav">
+         <li ><a href="home.html">HOME<span class="sr-only">(current)</span></a></li>
+         <li><a href="about.html" target="_top">ABOUT US</a></li>
+           <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">PROFILE
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="profileUpdate.html">PROFILE UPDATE</a></li>
+          <li><a href="addListings.html">ADD LISTING</a></li>
+          <li><a href="myListings1.html">MY LISTINGS</a></li>
+        </ul>
+      </li>
+          <li><a href="search.html" target="_top">SEARCH</a></li>
+          <li><a href="listing.html" target="_top">ACTIVE AREAS</a></li>
+		  <li><a href="gallery.html" target="_top">GALLERY</a></li>
+		  <li><a href="features.html" target="_top">DOCUMENTATION</a></li>
+
+       </ul>
+  
+  <ul class="nav navbar-nav navbar-right">
+        <li><a href="signUp.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="signIn.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+
+     </div><!-- /.navbar-collapse -->
+   </div><!-- /.container-fluid -->
+ </nav>
+
+
+ <div class="container-fluid" id="myListing">   
+    <div id="title"><center><h3>My Listings</h3></center></div>
+
+  <section class="row col-xs-12 col-sm-10 col-md-9 my-listing col-centered">
+
+            <!-- ngIf: listings.length == 0 -->
+            <!-- ngIf: listings --><ul ng-if="listings" class="property-list ng-scope">
+                <!-- ngRepeat: listing in listings --><li class="property clearfix ng-scope" ng-repeat="listing in listings">
+                    <button type="button" class="btn btn-danger edit-button" id="edit-listing" data-toggle="modal" data-target="#update-modal" aria-label="Pencil">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="btn btn-danger delete-button" id="delete-listing" ng-click="deleteListing(listing._id)" aria-label="Trash">
+                        <span class="glyphicon glyphicon-trash" ng-click="deleteListing(listing._id)" aria-hidden="true"></span>
+                    </button>
+                    <a ng-click="showDetails(listing)" class="indicator-wrap"><span class="glyphicon glyphicon-chevron-right indicator" aria-hidden="true"></span></a>
+
+                    <div class="modal fade" id="update-modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog update-modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title">Update Listing</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-holder">
+                                        <form name="listingForm" novalidate="" class="ng-pristine ng-valid ng-valid-required">
+                                            <div class="listing-details clearfix">
+                                                <div class="form-group col-xs-11 col-sm-3 type">
+                                                    <label for="property-type">Type *</label>
+                                                    <select name="propertyType" id="property-type" ng-model="listing.propertyType" class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" required="">
+                                                        <option value="APT">Apartment</option>
+                                                        <option value="CON">Condo</option>
+                                                        <option value="TOW">Town House</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-xs-11 col-sm-3">
+                                                    <label for="bed">Bed *</label>
+                                                    <select name="bed" id="bed" ng-model="listing.bed" class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" required="">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-xs-11 col-sm-4">
+                                                    <label for="bath">Bath *</label>
+                                                    <select name="" id="bath" ng-model="listing.bath" class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" required="">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-xs-11 no-padding">
+                                                    <label for="autocomplete">Address *</label>
+                                                    <input id="autocomplete" g-places-autocomplete="" class="form-control ng-pristine ng-untouched ng-valid ng-isolate-scope" ng-model="place" ng-change="autocompleteResponse()" placeholder="Enter your address" type="text">
+
+                                                    <div class="form-group no-padding">
+                                                        <label for="addr1">Address 1 </label>
+                                                        <input type="text" id="addr1" class="form-control" value="27 Dudley Street" placeholder="360 Huntington Ave (Populated automatically)" disabled="">
+                                                    </div>
+                                                    <div class="form-group no-padding">
+                                                        <label for="addr2">Address 2</label>
+                                                        <input type="text" id="addr2" class="form-control" placeholder="Contd" disabled="">
+                                                    </div>
+                                                    <div class="form-group col-xs-5 col-sm-3 city">
+                                                        <label for="city">City</label>
+                                                        <input type="text" id="city" class="form-control" value="Boston" placeholder="City" disabled="">
+                                                    </div>
+                                                    <div class="form-group col-xs-5 col-sm-3">
+                                                        <label for="state">State</label>
+                                                        <input type="text" id="state" class="form-control" value="MA" placeholder="State" disabled="">
+                                                    </div>
+                                                    <div class="form-group col-xs-12 col-sm-4 zip">
+                                                        <label for="zip">Zip Code</label>
+                                                        <input type="text" id="zip" class="form-control" value="02119" placeholder="XXXXX" disabled="">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-xs-11 no-padding">
+                                                    <label for="rent">Rent/mo *</label>
+                                                    <input type="text" id="rent" class="form-control ng-pristine ng-untouched ng-valid" ng-model="listing.rent" placeholder="$XXXX">
+                                                </div>
+                                            </div>
+
+                                            <div class="listing-props">
+                                                <div class="misc-details clearfix">
+                                                    <div class="form-wrap col-xs-12 no-padding">
+                                                        <div class="form-group col-sm-6 no-padding">
+                                                            <label for="heat-included">Heat Included? *</label>
+
+                                                            <div class="radio" id="heat-included">
+                                                                <label>
+                                                                    <input type="radio" name="heat" id="heat" ng-model="listing.heat" ng-value="true" class="ng-pristine ng-untouched ng-valid" value="true">Yes
+                                                                </label>
+
+                                                                <label class="option-no">
+                                                                    <input type="radio" name="heat" id="no-heat" ng-model="listing.heat" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-sm-6 no-padding">
+                                                            <label for="heat-included">Pets? *</label>
+
+                                                            <div class="radio" id="pets-allowed">
+                                                                <label>
+                                                                    <input type="radio" name="pets" id="pets" ng-model="listing.pets" ng-value="true" class="ng-pristine ng-untouched ng-valid" value="true">Yes
+                                                                </label>
+
+                                                                <label class="option-no">
+                                                                    <input type="radio" name="pets" id="no-pets" ng-model="listing.pets" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-wrap col-xs-12 no-padding">
+                                                        <div class="form-group col-sm-6 no-padding">
+                                                            <label for="heat-included">Gym? *</label>
+
+                                                            <div class="radio" id="gym-available">
+                                                                <label>
+                                                                    <input type="radio" name="gym" id="gym" ng-model="listing.gym" ng-value="true" class="ng-pristine ng-untouched ng-valid" value="true">
+                                                                    Yes
+                                                                </label>
+
+                                                                <label class="option-no">
+                                                                    <input type="radio" name="gym" id="no-gym" ng-model="listing.gym" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-sm-6 no-padding">
+                                                            <label for="heat-included">Parking? *</label>
+
+                                                            <div class="radio" id="parking-available">
+                                                                <label>
+                                                                    <input type="radio" name="parking" id="parking" ng-model="listing.parking" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">
+                                                                    Yes
+                                                                </label>
+
+                                                                <label class="option-no">
+                                                                    <input type="radio" name="parking" id="no-parking" ng-model="listing.parking" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-xs-11 no-padding">
+                                                        <label for="desc">Description</label>
+                            <textarea name="description" id="desc" cols="12" rows="3" class="form-control ng-pristine ng-untouched ng-valid" ng-model="listing.descirption" placeholder="(Optional) Anything you want to add about your property"></textarea>
+                                                    </div>
+
+                                                    <a class="btn btn-custom" ng-click="updateListing()" role="button" ng-disabled="!user || !listingForm.$valid" id="add-listing">Update
+                                                        Listing</a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+
+
+                    <div class="property-image col-xs-12 col-sm-4">
+                        <img src="images/living_room_3.jpg" alt="Living" class="search-image">
+                    </div>
+                    <div class="property-details col-xs-12 col-sm-8">
+                        <div class="description col-xs-11">
+                            <h4 class="ng-binding"> 27 Dudley St, Roxbury, MA 02119, USA </h4>
+
+                            <p class="ng-binding"> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here </p>
+                        </div>
+                        <ul class="list-inline col-xs-12 details">
+                            <li class="ng-binding">Bed 1</li>
+                            <li class="ng-binding">Bath 1</li>
+                        </ul>
+                        <ul class="list-inline col-xs-12 details">
+                            <li class="ng-binding">Pets true</li>
+                            <li class="ng-binding">Heat true</li>
+                        </ul>
+                    </div>
+
+
+
+
+
+
+
+                </li><!-- end ngRepeat: listing in listings --><li class="property clearfix ng-scope" ng-repeat="listing in listings">
+                    <button type="button" class="btn btn-danger edit-button" id="edit-listing" data-toggle="modal" data-target="#update-modal" aria-label="Pencil">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="btn btn-danger delete-button" id="delete-listing" ng-click="deleteListing(listing._id)" aria-label="Trash">
+                        <span class="glyphicon glyphicon-trash" ng-click="deleteListing(listing._id)" aria-hidden="true"></span>
+                    </button>
+                    <a ng-click="showDetails(listing)" class="indicator-wrap"><span class="glyphicon glyphicon-chevron-right indicator" aria-hidden="true"></span></a>
+
+                    <div class="modal fade" id="update-modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog update-modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title">Update Listing</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-holder">
+                                        <form name="listingForm" novalidate="" class="ng-pristine ng-valid ng-valid-required">
+                                            <div class="listing-details clearfix">
+                                                <div class="form-group col-xs-11 col-sm-3 type">
+                                                    <label for="property-type">Type *</label>
+                                                    <select name="propertyType" id="property-type" ng-model="listing.propertyType" class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" required="">
+                                                        <option value="APT">Apartment</option>
+                                                        <option value="CON">Condo</option>
+                                                        <option value="TOW">Town House</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-xs-11 col-sm-3">
+                                                    <label for="bed">Bed *</label>
+                                                    <select name="bed" id="bed" ng-model="listing.bed" class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" required="">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-xs-11 col-sm-4">
+                                                    <label for="bath">Bath *</label>
+                                                    <select name="" id="bath" ng-model="listing.bath" class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" required="">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-xs-11 no-padding">
+                                                    <label for="autocomplete">Address *</label>
+                                                    <input id="autocomplete" g-places-autocomplete="" class="form-control ng-pristine ng-untouched ng-valid ng-isolate-scope" ng-model="place" ng-change="autocompleteResponse()" placeholder="Enter your address" type="text">
+
+                                                    <div class="form-group no-padding">
+                                                        <label for="addr1">Address 1 </label>
+                                                        <input type="text" id="addr1" class="form-control" value="75 Saint Alphonsus Street" placeholder="360 Huntington Ave (Populated automatically)" disabled="">
+                                                    </div>
+                                                    <div class="form-group no-padding">
+                                                        <label for="addr2">Address 2</label>
+                                                        <input type="text" id="addr2" class="form-control" placeholder="Contd" disabled="">
+                                                    </div>
+                                                    <div class="form-group col-xs-5 col-sm-3 city">
+                                                        <label for="city">City</label>
+                                                        <input type="text" id="city" class="form-control" value="Boston" placeholder="City" disabled="">
+                                                    </div>
+                                                    <div class="form-group col-xs-5 col-sm-3">
+                                                        <label for="state">State</label>
+                                                        <input type="text" id="state" class="form-control" value="MA" placeholder="State" disabled="">
+                                                    </div>
+                                                    <div class="form-group col-xs-12 col-sm-4 zip">
+                                                        <label for="zip">Zip Code</label>
+                                                        <input type="text" id="zip" class="form-control" value="02120" placeholder="XXXXX" disabled="">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-xs-11 no-padding">
+                                                    <label for="rent">Rent/mo *</label>
+                                                    <input type="text" id="rent" class="form-control ng-pristine ng-untouched ng-valid" ng-model="listing.rent" placeholder="$XXXX">
+                                                </div>
+                                            </div>
+
+                                            <div class="listing-props">
+                                                <div class="misc-details clearfix">
+                                                    <div class="form-wrap col-xs-12 no-padding">
+                                                        <div class="form-group col-sm-6 no-padding">
+                                                            <label for="heat-included">Heat Included? *</label>
+
+                                                            <div class="radio" id="heat-included">
+                                                                <label>
+                                                                    <input type="radio" name="heat" id="heat" ng-model="listing.heat" ng-value="true" class="ng-pristine ng-untouched ng-valid" value="true">Yes
+                                                                </label>
+
+                                                                <label class="option-no">
+                                                                    <input type="radio" name="heat" id="no-heat" ng-model="listing.heat" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-sm-6 no-padding">
+                                                            <label for="heat-included">Pets? *</label>
+
+                                                            <div class="radio" id="pets-allowed">
+                                                                <label>
+                                                                    <input type="radio" name="pets" id="pets" ng-model="listing.pets" ng-value="true" class="ng-pristine ng-untouched ng-valid" value="true">Yes
+                                                                </label>
+
+                                                                <label class="option-no">
+                                                                    <input type="radio" name="pets" id="no-pets" ng-model="listing.pets" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-wrap col-xs-12 no-padding">
+                                                        <div class="form-group col-sm-6 no-padding">
+                                                            <label for="heat-included">Gym? *</label>
+
+                                                            <div class="radio" id="gym-available">
+                                                                <label>
+                                                                    <input type="radio" name="gym" id="gym" ng-model="listing.gym" ng-value="true" class="ng-pristine ng-untouched ng-valid" value="true">
+                                                                    Yes
+                                                                </label>
+
+                                                                <label class="option-no">
+                                                                    <input type="radio" name="gym" id="no-gym" ng-model="listing.gym" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-sm-6 no-padding">
+                                                            <label for="heat-included">Parking? *</label>
+
+                                                            <div class="radio" id="parking-available">
+                                                                <label>
+                                                                    <input type="radio" name="parking" id="parking" ng-model="listing.parking" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">
+                                                                    Yes
+                                                                </label>
+
+                                                                <label class="option-no">
+                                                                    <input type="radio" name="parking" id="no-parking" ng-model="listing.parking" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-xs-11 no-padding">
+                                                        <label for="desc">Description</label>
+                            <textarea name="description" id="desc" cols="12" rows="3" class="form-control ng-pristine ng-untouched ng-valid" ng-model="listing.descirption" placeholder="(Optional) Anything you want to add about your property"></textarea>
+                                                    </div>
+
+                                                    <a class="btn btn-custom" ng-click="updateListing()" role="button" ng-disabled="!user || !listingForm.$valid" id="add-listing">Update
+                                                        Listing</a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+
+
+                    <div class="property-image col-xs-12 col-sm-4">
+                        <img src="images/living_room.jpg" alt="Living" class="search-image">
+                    </div>
+                    <div class="property-details col-xs-12 col-sm-8">
+                        <div class="description col-xs-11">
+                            <h4 class="ng-binding"> 75 St Alphonsus St, Boston, MA 02120, USA </h4>
+
+                            <p class="ng-binding"> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here </p>
+                        </div>
+                        <ul class="list-inline col-xs-12 details">
+                            <li class="ng-binding">Bed 2</li>
+                            <li class="ng-binding">Bath 1</li>
+                        </ul>
+                        <ul class="list-inline col-xs-12 details">
+                            <li class="ng-binding">Pets true</li>
+                            <li class="ng-binding">Heat true</li>
+                        </ul>
+                    </div>
+                </li><!-- end ngRepeat: listing in listings --><li class="property clearfix ng-scope" ng-repeat="listing in listings">
+                    <button type="button" class="btn btn-danger edit-button" id="edit-listing" data-toggle="modal" data-target="#update-modal" aria-label="Pencil">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="btn btn-danger delete-button" id="delete-listing" ng-click="deleteListing(listing._id)" aria-label="Trash">
+                        <span class="glyphicon glyphicon-trash" ng-click="deleteListing(listing._id)" aria-hidden="true"></span>
+                    </button>
+                    <a ng-click="showDetails(listing)" class="indicator-wrap"><span class="glyphicon glyphicon-chevron-right indicator" aria-hidden="true"></span></a>
+
+                    <div class="modal fade" id="update-modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog update-modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title">Update Listing</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-holder">
+                                        <form name="listingForm" novalidate="" class="ng-pristine ng-valid ng-valid-required">
+                                            <div class="listing-details clearfix">
+                                                <div class="form-group col-xs-11 col-sm-3 type">
+                                                    <label for="property-type">Type *</label>
+                                                    <select name="propertyType" id="property-type" ng-model="listing.propertyType" class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" required="">
+                                                        <option value="APT">Apartment</option>
+                                                        <option value="CON">Condo</option>
+                                                        <option value="TOW">Town House</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-xs-11 col-sm-3">
+                                                    <label for="bed">Bed *</label>
+                                                    <select name="bed" id="bed" ng-model="listing.bed" class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" required="">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-xs-11 col-sm-4">
+                                                    <label for="bath">Bath *</label>
+                                                    <select name="" id="bath" ng-model="listing.bath" class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" required="">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-xs-11 no-padding">
+                                                    <label for="autocomplete">Address *</label>
+                                                    <input id="autocomplete" g-places-autocomplete="" class="form-control ng-pristine ng-untouched ng-valid ng-isolate-scope" ng-model="place" ng-change="autocompleteResponse()" placeholder="Enter your address" type="text">
+
+                                                    <div class="form-group no-padding">
+                                                        <label for="addr1">Address 1 </label>
+                                                        <input type="text" id="addr1" class="form-control" value="27 Peterborough Street" placeholder="360 Huntington Ave (Populated automatically)" disabled="">
+                                                    </div>
+                                                    <div class="form-group no-padding">
+                                                        <label for="addr2">Address 2</label>
+                                                        <input type="text" id="addr2" class="form-control" placeholder="Contd" disabled="">
+                                                    </div>
+                                                    <div class="form-group col-xs-5 col-sm-3 city">
+                                                        <label for="city">City</label>
+                                                        <input type="text" id="city" class="form-control" value="Boston" placeholder="City" disabled="">
+                                                    </div>
+                                                    <div class="form-group col-xs-5 col-sm-3">
+                                                        <label for="state">State</label>
+                                                        <input type="text" id="state" class="form-control" value="MA" placeholder="State" disabled="">
+                                                    </div>
+                                                    <div class="form-group col-xs-12 col-sm-4 zip">
+                                                        <label for="zip">Zip Code</label>
+                                                        <input type="text" id="zip" class="form-control" value="02215" placeholder="XXXXX" disabled="">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-xs-11 no-padding">
+                                                    <label for="rent">Rent/mo *</label>
+                                                    <input type="text" id="rent" class="form-control ng-pristine ng-untouched ng-valid" ng-model="listing.rent" placeholder="$XXXX">
+                                                </div>
+                                            </div>
+
+                                            <div class="listing-props">
+                                                <div class="misc-details clearfix">
+                                                    <div class="form-wrap col-xs-12 no-padding">
+                                                        <div class="form-group col-sm-6 no-padding">
+                                                            <label for="heat-included">Heat Included? *</label>
+
+                                                            <div class="radio" id="heat-included">
+                                                                <label>
+                                                                    <input type="radio" name="heat" id="heat" ng-model="listing.heat" ng-value="true" class="ng-pristine ng-untouched ng-valid" value="true">Yes
+                                                                </label>
+
+                                                                <label class="option-no">
+                                                                    <input type="radio" name="heat" id="no-heat" ng-model="listing.heat" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-sm-6 no-padding">
+                                                            <label for="heat-included">Pets? *</label>
+
+                                                            <div class="radio" id="pets-allowed">
+                                                                <label>
+                                                                    <input type="radio" name="pets" id="pets" ng-model="listing.pets" ng-value="true" class="ng-pristine ng-untouched ng-valid" value="true">Yes
+                                                                </label>
+
+                                                                <label class="option-no">
+                                                                    <input type="radio" name="pets" id="no-pets" ng-model="listing.pets" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-wrap col-xs-12 no-padding">
+                                                        <div class="form-group col-sm-6 no-padding">
+                                                            <label for="heat-included">Gym? *</label>
+
+                                                            <div class="radio" id="gym-available">
+                                                                <label>
+                                                                    <input type="radio" name="gym" id="gym" ng-model="listing.gym" ng-value="true" class="ng-pristine ng-untouched ng-valid" value="true">
+                                                                    Yes
+                                                                </label>
+
+                                                                <label class="option-no">
+                                                                    <input type="radio" name="gym" id="no-gym" ng-model="listing.gym" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-sm-6 no-padding">
+                                                            <label for="heat-included">Parking? *</label>
+
+                                                            <div class="radio" id="parking-available">
+                                                                <label>
+                                                                    <input type="radio" name="parking" id="parking" ng-model="listing.parking" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">
+                                                                    Yes
+                                                                </label>
+
+                                                                <label class="option-no">
+                                                                    <input type="radio" name="parking" id="no-parking" ng-model="listing.parking" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">
+                                                                    No
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-xs-11 no-padding">
+                                                        <label for="desc">Description</label>
+                            <textarea name="description" id="desc" cols="12" rows="3" class="form-control ng-pristine ng-untouched ng-valid" ng-model="listing.descirption" placeholder="(Optional) Anything you want to add about your property"></textarea>
+                                                    </div>
+
+                                                    <a class="btn btn-custom" ng-click="updateListing()" role="button" ng-disabled="!user || !listingForm.$valid" id="add-listing">Update
+                                                        Listing</a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+
+
+                    <div class="property-image col-xs-12 col-sm-4">
+                        <img src="images/living_room_2.jpg" alt="Living" class="search-image">
+                    </div>
+                    <div class="property-details col-xs-12 col-sm-8">
+                        <div class="description col-xs-11">
+                            <h4 class="ng-binding"> 27 Peterborough St, Boston, MA 02215, USA </h4>
+
+                            <p class="ng-binding"> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here </p>
+                        </div>
+                        <ul class="list-inline col-xs-12 details">
+                            <li class="ng-binding">Bed 3</li>
+                            <li class="ng-binding">Bath 2</li>
+                        </ul>
+                        <ul class="list-inline col-xs-12 details">
+                            <li class="ng-binding">Pets false</li>
+                            <li class="ng-binding">Heat true</li>
+                        </ul>
+                    </div>
+                </li><!-- end ngRepeat: listing in listings -->
+            </ul><!-- end ngIf: listings -->
+        </section>
+       </div> 
+</div>
+<footer class="footer-distributed">
+
+      <div class="footer-left">
+
+        <h3>NEU<span> Easy Rental</span></h3>
+
+        <p class="footer-links">
+          <a href="#">Home</a>
+          ·
+          <a href="#">Blog</a>
+          ·
+          <a href="#">Pricing</a>
+          ·
+          <a href="#">About</a>
+          ·
+          <a href="#">Faq</a>
+          ·
+          <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Company Name &copy; 2015</p>
+      </div>
+
+      <div class="footer-center">
+
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>75 Saint Alphonsus Street</span> Boston, MA</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>+1 555 123456</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:support@neubnb.com">support@neubnb.com</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span>About the company</span>
+         Student Rental is House/Property Rental Portal. Focus is on providing reliable data to home seekers.
+        </p>
+
+        <div class="footer-icons">
+
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-github"></i></a>
+
+        </div>
+
+      </div>
+
+    </footer>   
+</div>
+ </body>
+ </html>

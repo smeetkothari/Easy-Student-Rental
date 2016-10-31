@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="CollegeLiv">
+    <meta name="author" content="Jibin Jackson">
+
+    <title>CollegeLiv</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="chelseaCss.css" rel="stylesheet">
+
+    <link href="css/collegeliv.css" rel="stylesheet">
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+</head>
+
+
+<!--
+<body id="page-top" class="index">
+
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class 
+
+
+            <a class="navbar-brand" href="#">CollegeLiv</a>
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse"> f </button>
+
+            <div class="collapse navbar-collapse navHeaderCollapse">
+
+                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#post">Rent a place</a></li>
+                    <li><a href="#services">Help</a></li>
+                    <li><a href="#contact">SignUp</a></li>
+                    <li><a href="#contact">Login</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+    
+</div>
+ -->
+
+<!-- Header -->
+
+<body>
+<div id="mainDiv" class="container-fluid">
+
+<nav class="navbar navbar-default">
+   <div class="container-fluid">
+     <!-- Brand and toggle get grouped for better mobile display -->
+     <div class="navbar-header">
+       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+       <a class="navbar-brand" href="home.html" target="_top">NEU Easy Rental</a>
+     </div>
+     <!-- Collect the nav links, forms, and other content for toggling -->
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <ul class="nav navbar-nav">
+         <li ><a href="home.html">HOME<span class="sr-only">(current)</span></a></li>
+         <li><a href="about.html" target="_top">ABOUT US</a></li>
+         <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">PROFILE
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="profileUpdate.html">PROFILE UPDATE</a></li>
+          <li><a href="addListings.html">ADD LISTING</a></li>
+          <li><a href="myListings1.html">MY LISTINGS</a></li>
+        </ul>
+      </li>
+
+          <li><a href="search.html" target="_top">SEARCH</a></li>
+          <li><a href="listing.html" target="_top">ACTIVE AREAS</a></li>
+		  <li><a href="gallery.html" target="_top">GALLERY</a></li>
+		  <li><a href="features.html" target="_top">DOCUMENTATION</a></li>
+
+       </ul>
+  
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="signUp.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="signIn.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+
+     </div><!-- /.navbar-collapse -->
+   </div><!-- /.container-fluid -->
+ </nav>
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span2 colorize-white" id="sidebar" style="background-color:white;" >
+   <!--Sidebar content
+    <p>Current design: <strong id="current">unknown</strong></p>
+    <p>Value WAS: <strong id="current0">unknown</strong></p>
+    <p>Value is: <strong id="current1">unknown</strong></p>
+    -->
+     </br>
+     </br>
+     <div class="row text-left">
+     <div class="col-md-12">
+
+
+          <span id="location-search">
+                          <form role="form" method="link" action="search.html" style="display:inline-block">
+                          <span class="form-group"   style="display:inline-block;">
+                          <label class="sr-only" for="location">Location</label>
+                          <input type="text" class="form-control" name="boxsearch" id="text-box-search" placeholder="Enter Your Location?" value="Boston">
+                          </span></form>
+
+                          &nbsp
+
+                          <button type="submit" class="btn btn-small"  id="button-search" style="display:inline-block">Search</button>
+                          </span>
+     <form class = "form-inline" role = "form">
+
+
+                    <div class="row text-left">
+                    <div class="col-md-3">
+                
+                    <span style="font-weight: bold;">&nbsp&nbsp&nbsp Type:   &nbsp </span>
+                    </div>
+
+
+                    <div class="col-md-9">               
+                    <div class="checkbox checkbox-inline">              
+                        <input type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label for="inlineCheckbox1"> Rental </label>
+                    </div>
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox2" value="option1" checked="">
+                        <label for="inlineCheckbox2"> Sublet </label>
+                    </div>
+                    </div></div>
+                   
+                </br></br>
+
+     
+
+                    <div class="row text-left">
+                    <div class="col-md-3">
+
+                    <span style="font-weight: bold;">&nbsp&nbsp&nbsp Bedrooms:   &nbsp </span>
+                    </div>                 
+
+                  
+            <div class="col-md-9">
+             &nbsp&nbsp&nbsp       
+            <div class="btn-group" data-toggle="buttons">
+
+            <label class="btn btn-primary">
+                <input type="checkbox" autocomplete="off" checked>
+                <span class="glyphicon glyphicon-ok"></span>Studio
+            </label>
+
+            <label class="btn btn-primary">
+                <input type="checkbox" autocomplete="off">
+                <span class="glyphicon glyphicon-ok"></span>1
+            </label>            
+        
+            <label class="btn btn-primary">
+                <input type="checkbox" autocomplete="off">
+                <span class="glyphicon glyphicon-ok"></span>2
+            </label>            
+        
+            <label class="btn btn-primary">
+                <input type="checkbox" autocomplete="off">
+                <span class="glyphicon glyphicon-ok"></span>3
+            </label>            
+
+            <label class="btn btn-primary">
+                <input type="checkbox" autocomplete="off">
+                <span class="glyphicon glyphicon-ok"></span>4
+            </label>            
+        
+            <label class="btn btn-primary">
+                <input type="checkbox" autocomplete="off">
+                <span class="glyphicon glyphicon-ok"></span>5+
+            </label>    
+           </div>        
+        
+  </div></div></br></br>
+
+
+
+
+<div class="row text-left">
+                    <div class="col-md-3">
+                
+                    <span style="font-weight: bold;">&nbsp&nbsp&nbsp Lease Length:   &nbsp </span>
+                    </div>
+
+
+                    <div class="col-md-9">               
+                 
+                 <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">-Select-<span class="caret"></span></button>
+                <ul class="dropdown-menu">
+      <li><a href="#">1 month</a></li>
+      <li><a href="#">2 months</a></li>
+      <li><a href="#">3 months</a></li>
+      <li><a href="#">4 months</a></li>
+      <li><a href="#">5 months</a></li>
+      <li><a href="#">6 months</a></li>
+      <li><a href="#">7 months</a></li>
+      <li><a href="#">8 months</a></li>
+      <li><a href="#">9 months</a></li>
+      <li><a href="#">10 months</a></li>
+      <li><a href="#">11 months</a></li>
+      <li><a href="#">12 months</a></li>
+                </ul></div>
+  
+
+
+
+
+                    </div></div></br></br>
+                   
+                
+<hr>
+
+
+     </form>
+     <div id="Bar" class="collapse in">
+     </div>
+     <div id="Foo" class="collapse">
+
+
+     <div class="row text-left">
+                    <div class="col-md-3">
+                
+                    <span style="font-weight: bold;">&nbsp&nbsp&nbsp Features:   &nbsp </span>
+                    </div>
+
+
+                    <div class="col-md-9">               
+                    <div class="checkbox checkbox-inline">              
+                        <input type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label for="inlineCheckbox1"> Dogs </label>
+                    </div>
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox2" value="option1" checked="">
+                        <label for="inlineCheckbox2"> Cats </label>
+                    </div>
+                    <div class="checkbox checkbox-inline">              
+                        <input type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label for="inlineCheckbox1"> Furnished </label>
+                    </div>
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox2" value="option1" checked="">
+                        <label for="inlineCheckbox2"> Off Street Parking </label>
+                    </div>
+                    </div></div>
+                   
+                </br></br>
+
+
+                <div class="row text-left">
+                    <div class="col-md-3">
+                
+                    <span style="font-weight: bold;">&nbsp&nbsp&nbsp Building Type:   &nbsp </span>
+                    </div>
+
+
+                    <div class="col-md-9">               
+                    <div class="checkbox checkbox-inline">              
+                        <input type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label for="inlineCheckbox1"> House </label>
+                    </div>
+                    <div class="checkbox checkbox-success checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox2" value="option1" checked="">
+                        <label for="inlineCheckbox2"> Apartment </label>
+                    </div>
+                    </div></div>
+                   
+                </br></br>
+
+
+
+
+     </div>
+     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+     <a href="#Foo" class="btn btn-default" data-toggle="collapse">Toggle More Filters</a>
+     <!--<button href="#Bar" class="btn btn-default" data-toggle="collapse">Cancel</button> -->
+
+<hr>
+
+</div>
+</div>
+<div class="row text-left">
+<div class="col-md-12">
+
+
+
+
+
+
+
+
+<section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <h3>27 Dudley St, Roxbury, MA 02119, USA</h3>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-lg-2">
+                <img src="img/list1.jpg" class="img-responsive" alt="">
+                </img>
+                    
+                </div>
+
+                <div class="col-lg-6">
+                    <p>Students Rental is an house/property rental platform which focuses on providing reliable data to home seekers prioritizing students.Our mission is to ensure that the region’s low- and moderate-income international students have choice and mobility in finding and renting decent affordable housing.
+                    </br>
+                    <p>No of Beds:<span style="color:blue"> 3</span>  &nbsp Rent:<span style="color:green"> $2000</span></p></p>
+                </div>
+            
+                
+            </div>
+        </div>
+</section>
+
+
+
+<section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <h3>27 Dudley St, Roxbury, MA 02119, USA</h3>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-lg-2">
+                <img src="img/list1.jpg" class="img-responsive" alt="">
+                </img>
+                    
+                </div>
+
+                <div class="col-lg-6">
+                    <p>Students Rental is an house/property rental platform which focuses on providing reliable data to home seekers prioritizing students.Our mission is to ensure that the region’s low- and moderate-income international students have choice and mobility in finding and renting decent affordable housing.
+                    </br>
+                    <p>No of Beds:<span style="color:blue"> 3</span>  &nbsp Rent:<span style="color:green"> $2000</span></p></p>
+                </div>
+            
+                
+            </div>
+        </div>
+</section>
+
+
+<section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <h3>27 Dudley St, Roxbury, MA 02119, USA</h3>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-lg-2">
+                <img src="img/list1.jpg" class="img-responsive" alt="">
+                </img>
+                    
+                </div>
+
+                <div class="col-lg-6">
+                    <p>Students Rental is an house/property rental platform which focuses on providing reliable data to home seekers prioritizing students.Our mission is to ensure that the region’s low- and moderate-income international students have choice and mobility in finding and renting decent affordable housing.
+                    </br>
+                    <p>No of Beds:<span style="color:blue"> 3</span>  &nbsp Rent:<span style="color:green"> $2000</span></p></p>
+                </div>
+            
+                
+            </div>
+        </div>
+</section>
+
+
+
+</div>
+</div>
+</div>
+<div class="span10 colorize-white" id="content" style="background-color:white;" >
+<!--Sidebar content
+    <p>Current design: <strong id="current">unknown</strong></p>
+    <p>Value WAS: <strong id="current0">unknown</strong></p>
+    <p>Value is: <strong id="current1">unknown</strong></p>
+    -->
+
+
+<img src="img/gmapt.png" class="img-responsive" alt="">
+                </img>
+
+
+
+
+
+
+</div>
+</div>
+</div>
+</meta>
+
+
+
+
+
+
+
+
+
+
+
+    
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mq.js"></script>
+
+</div>
+
+</body>
+
+</html>
+
+
+
+<!--My reference -Jibin -->
+<!-- 
+
+var QueryString = function () {
+  // This function is anonymous, is executed immediately and 
+  // the return value is assigned to QueryString!
+  var query_string = {};
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+        // If first entry with this name
+    if (typeof query_string[pair[0]] === "undefined") {
+      query_string[pair[0]] = decodeURIComponent(pair[1]);
+        // If second entry with this name
+    } else if (typeof query_string[pair[0]] === "string") {
+      var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+      query_string[pair[0]] = arr;
+        // If third or later entry with this name
+    } else {
+      query_string[pair[0]].push(decodeURIComponent(pair[1]));
+    }
+  } 
+    return query_string;
+}();
+
+-->

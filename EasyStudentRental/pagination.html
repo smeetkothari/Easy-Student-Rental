@@ -1,0 +1,286 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>NEU BNB</title>
+        <link rel="stylesheet" href="pagination.css">        
+    </head>
+	<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+	<script>
+			// 
+			jQuery(document).ready(function ($) {
+				// creating a container variable to hold the 'UL' element. It uses method chaining.
+				var container=$('div.slider')
+											.css('overflow','hidden')
+											.children('ul');
+				
+				// creating pagination variable which holds the 'UL' element.
+				var pagicontainer=$('div.pagi-container').children('ul');
+				
+				/* 
+				On the event of mouse-hover, 
+					i) Change the visibility of Button Controls.
+					ii) SET/RESET the "intv" variable to switch between AutoSlider and Stop mode.
+				*/
+				$('.gallery').hover(function( e ){
+					$('.slider-nav').toggle();
+					return e.type=='mouseenter'?clearInterval(intv):autoSlider();
+				});
+				
+				// Creating the 'slider' instance which will set initial parameters for the Slider.
+				var sliderobj= new slider(container,pagicontainer,$('.slider-nav'));
+				/*
+				This will trigger the 'setCurrentPos' and 'transition' methods on click of any button
+				 "data-dir" attribute associated with the button will determine the direction of sliding.
+				*/
+				sliderobj.nav.find('button').on('click', function(){
+					sliderobj.setCurrentPos($(this).data('dir'));
+					sliderobj.transition();
+				});
+				
+				/*
+				This will trigger the 'setCurrentPos' and 'transition' methods on click of any Pagination icons.
+				 "data-pgno" attribute associated with the Pagination icons will determine the value of current variable.
+				*/
+				sliderobj.pagicontainer.find('li a').on('click', function(){
+					sliderobj.setCurrentPos($(this).data('pgno'));
+					sliderobj.transition();					
+				});
+				
+				autoSlider(); // Calling autoSlider() method on Page Load.
+				
+				/* 
+				This function will initialize the interval variable which will cause execution of the inner function after every 3 seconds automatically.
+				*/
+				function autoSlider()
+				{
+					return intv = setInterval(function(){
+						sliderobj.setCurrentPos('next');
+						sliderobj.transition();
+					}, 3000);
+				}
+				
+			});
+		</script>
+
+	
+	
+	
+	
+	
+	<script>
+	function slider(container, pagicontainer, nav){
+    this.container=container;
+    this.pagicontainer=pagicontainer;
+    this.nav=nav.hide(); // This will assign 'nav' from parameters to 'nav' of current slider instance. It uses method chaining.
+    this.imgs=this.container.find('.slides'); // Returns jQuery object containing all matched elements.
+    // Following commented line will not work here, as DIVs are Dynamic by nature unlike images where dimensions are known at "PageLoad( )" event.
+    // this.width=this.imgs[0].width;
+    this.width=640; // Only add contents within this limit. Longer sentences will be continued on next Line.
+    console.log('Value of width is : '+this.width);
+    this.imgLen=this.imgs.length; // Returns the total number of sliding elements.
+    console.log("Total no. of Items in the list are : "+this.imgLen);
+    // Here we will fill the Pagination with the following list.
+    out = "";
+    cnt=0;
+    this.liArr = $(container).find('li');// Returns jQuery object containing all matched LI elements.
+    this.liArr.each(function() 
+    {
+        out += "<li><a href='#' data-pgno='"+cnt+"'>" + (cnt+1) + "</a></li>"; // Here (CNT+1) is displayed on the WebPage, But the "pgno" attribute starts from ZERO only.
+        cnt++;
+    });
+         
+    this.pagicontainer.html(out); // Adding the List to the Pagination Container.
+    this.current=0; // Initialize the "current" counter.
+    // Apply CSS to "First" pagination element in the list.
+    this.pagicontainer.find('li').find("[data-pgno='" + this.current + "']").css({
+      border : "2px solid grey",
+      fontWeight: "900",
+      fontSize:"18px"
+    }); 
+}
+ 
+// This method will apply the needed animation and displacement.
+ 
+slider.prototype.transition=function(coords){
+    this.container.animate({
+        'margin-left': coords || -(this.current*this.width) // First element is multiplied by Zero.
+    },500);
+    // Remove CSS from Rest other pagination element in the list.
+    this.pagicontainer.find('li a').css({
+      border : "none",
+      fontWeight:"",
+      fontSize:""
+    });
+    // Apply CSS to current pagination element in the list.
+    this.pagicontainer.find('li').find("[data-pgno='" + this.current + "']").css({
+      border : "2px solid grey",
+      fontWeight:"900",
+      fontSize:"18px"
+    }); 
+};
+ 
+// This method will set the "current" counter to next position.
+/*
+Parameters are:-
+---------------
+1) dir -> It can be either 'prev' or 'next' or else a number denoting slides.
+*/
+slider.prototype.setCurrentPos=function(dir){
+    var pos=this.current;
+    console.log('Value of this.value is : '+dir);
+    if(isNaN(dir))
+    {
+        pos+= ~~(dir=='next') || -1; // You can use alternate "Math.floor()" method instead of double tilde (~~) operator.
+        this.current=(pos<0)?this.imgLen-1: pos%(this.imgLen);
+    }
+    else
+        this.current=Number(dir);
+    console.log(this.current);
+     
+};
+	</script>
+	
+	
+    <body>
+        <!-- Container for Slider, Navigation and Pagination Controls -->
+        <div class="gallery-container">           
+            <div class="gallery">
+                <h2>Pagination with Infinite Scrolling!</h2>
+                <!-- The actual moving Slider -->
+                <div class="slider">
+                    <ul>
+                        <li>
+                            <div class="slides">
+                                <div class="slides_content">
+                                    <img class="bg_img" src="../EasyStudentRental/images/pic1.jpg" alt="Image1" />
+                                   
+                                </div>
+                            </div>
+                        </li>
+ 
+                        <li>
+                            <div class="slides">
+                                <div class="slides_content">
+                                    <img class="bg_img" src="../EasyStudentRental/images/living_room_2.jpg" alt="Image2" />
+                                    
+                                </div>
+                            </div>
+                        </li>
+                         
+                        <li>
+                            <div class="slides">
+                                <div class="slides_content">
+                                    <img class="bg_img" src="../EasyStudentRental/images/living_room_3.jpg" alt="Image3" />
+                                    
+                                </div>
+                            </div>
+                        </li>
+                         
+                        <li>
+                            <div class="slides">
+                                <div class="slides_content">
+                                    <img class="bg_img" src="../EasyStudentRental/images/living_room_4.jpg" alt="Image4" />
+                                   
+                                </div>
+                            </div>
+                        </li>
+                         
+                        <li>
+                            <div class="slides">
+                                <div class="slides_content">
+                                    <img class="bg_img" src="../EasyStudentRental/images/living_room_5.jpg" alt="Image5" />
+                                    
+                                </div>
+                            </div>
+                        </li>
+                         
+                        <li>
+                            <div class="slides">
+                                <div class="slides_content">
+                                    <img class="bg_img" src="../EasyStudentRental/images/living_room_6.jpg" alt="Image6" />
+                                    
+                                </div>
+                            </div>
+                        </li>
+                         
+                    </ul>
+                </div>
+                 
+                <!-- Navigation Button Controls -->
+                 
+                <div class="slider-nav">
+                    <button class="backbtn" data-dir="prev">Previous</button>
+                    <button class="backbtn" data-dir="next" style="float:right;">Next</button>
+                </div>
+                     
+            </div>
+            <!-- Pagination Controls -->
+            <div class="slider-pagi">
+                <div class="pagi-container">
+                    <ul></ul>   <!-- Here Paginations will be dynamically created, depending on Number of elements in the list. -->                  
+ 
+                </div>
+            </div>
+        </div>
+         
+        <!-- Loading JavaScript Codes. -->
+       
+        <script>
+            // 
+            jQuery(document).ready(function ($) {
+                // creating a container variable to hold the 'UL' element. It uses method chaining.
+                var container=$('div.slider')
+                                            .css('overflow','hidden')
+                                            .children('ul');
+                 
+                // creating pagination variable which holds the 'UL' element.
+                var pagicontainer=$('div.pagi-container').children('ul');
+                 
+                /* 
+                On the event of mouse-hover, 
+                    i) Change the visibility of Button Controls.
+                    ii) SET/RESET the "intv" variable to switch between AutoSlider and Stop mode.
+                */
+                $('.gallery').hover(function( e ){
+                    $('.slider-nav').toggle();
+                    return e.type=='mouseenter'?clearInterval(intv):autoSlider();
+                });
+                 
+                // Creating the 'slider' instance which will set initial parameters for the Slider.
+                var sliderobj= new slider(container,pagicontainer,$('.slider-nav'));
+                /*
+                This will trigger the 'setCurrentPos' and 'transition' methods on click of any button
+                 "data-dir" attribute associated with the button will determine the direction of sliding.
+                */
+                sliderobj.nav.find('button').on('click', function(){
+                    sliderobj.setCurrentPos($(this).data('dir'));
+                    sliderobj.transition();
+                });
+                 
+                /*
+                This will trigger the 'setCurrentPos' and 'transition' methods on click of any Pagination icons.
+                 "data-pgno" attribute associated with the Pagination icons will determine the value of current variable.
+                */
+                sliderobj.pagicontainer.find('li a').on('click', function(){
+                    sliderobj.setCurrentPos($(this).data('pgno'));
+                    sliderobj.transition();                 
+                });
+                 
+                autoSlider(); // Calling autoSlider() method on Page Load.
+                 
+                /* 
+                This function will initialize the interval variable which will cause execution of the inner function after every 3 seconds automatically.
+                */
+                function autoSlider()
+                {
+                    return intv = setInterval(function(){
+                        sliderobj.setCurrentPos('next');
+                        sliderobj.transition();
+                    }, 3000);
+                }
+                 
+            });
+        </script>
+    </body>
+</html>

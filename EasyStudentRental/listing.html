@@ -1,0 +1,278 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<title>NEU BNB</title>
+<meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link href="chelseaCss.css" rel="stylesheet">
+     <link rel="stylesheet" href="css/pure/side-menu.css">
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+       <link rel="stylesheet" href="css/pure/grids-responsive-min.css">
+       <link rel="stylesheet" href="css/pure/menus.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+      height: 400px;
+  }
+  </style>
+
+
+<script>
+  
+
+  function showLongwood() {
+    document.getElementById("allston").style.display = 'none';
+     document.getElementById("fenway").style.display = 'none';
+    document.getElementById("longwood").style.display = 'block';
+}
+
+function showAllston() {
+    document.getElementById("longwood").style.display = 'none';
+    document.getElementById("fenway").style.display = 'none';
+    document.getElementById("allston").style.display = 'block';
+
+}
+
+
+function showFenway() {
+    document.getElementById("longwood").style.display = 'none';
+    document.getElementById("allston").style.display = 'none';
+    document.getElementById("fenway").style.display = 'block';
+}
+
+
+
+
+</script>
+
+
+</head>
+
+<body>
+<div id="mainDiv" class="container-fluid">
+
+
+
+
+<nav class="navbar navbar-default" id="listingNav">
+   <div class="container-fluid">
+     <!-- Brand and toggle get grouped for better mobile display -->
+     <div class="navbar-header">
+       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+       <a class="navbar-brand" href="home.html" target="_top">NEU Easy Rental</a>
+     </div>
+     <!-- Collect the nav links, forms, and other content for toggling -->
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <ul class="nav navbar-nav">
+         <li ><a href="home.html">HOME<span class="sr-only">(current)</span></a></li>
+         <li><a href="about.html" target="_top">ABOUT US</a></li>
+         <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">PROFILE
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="profileUpdate.html">PROFILE UPDATE</a></li>
+          <li><a href="addListings.html">ADD LISTING</a></li>
+          <li><a href="myListings1.html">MY LISTINGS</a></li>
+        </ul>
+      </li>
+          <li><a href="search.html" target="_top">SEARCH</a></li>
+          <li><a href="listing.html" target="_top">ACTIVE AREAS</a></li>
+		  <li><a href="gallery.html" target="_top">GALLERY</a></li>
+		  <li><a href="features.html" target="_top">DOCUMENTATION</a></li>
+          
+       </ul>
+  
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="signUp.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="signIn.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+
+     </div><!-- /.navbar-collapse -->
+   </div><!-- /.container-fluid -->
+ </nav>
+
+
+
+<div id="listings">
+
+   <marquee class="mrq1" behaviour="scroll" direction="left" scrollamount="5">Learning is not attained by chance, it must be sought for with ardor and attended to with diligence -
+               Abigail Adams</marquee>
+
+
+
+
+        <div class="pure-g" align=center>
+             <div class="pure-u-l">
+             <h2 align=center> Northeastern University Student Easy Rental</h2> <br>
+             <p id="photohead">These are the Places we are currently active in the United States. Click on the place logo to view photos of each place!</p>
+             <br></br>
+             
+       <a href="#" onclick="showLongwood()"> <img src="dorchester.jpg" style="width:200px;height:100px" onmouseover="this.src='dorchester.jpg'" onmouseout="this.src='dorchester.jpg'" class="lnk"/> </a> </button> &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+         <a href="#" onclick="showAllston()"> <img src="allston.png" style="width:200px;height:100px"/> </a>
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+         <a href="#" onclick="showFenway()"> <img src="fenway.jpg" style="width:200px;height:100px"/> </a> <br></br>
+         <a href="#"> <img src="roxbury.gif" style="width:200px;height:100px"/> </a>
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+         <a href="#"> <img src="neu.jpg" style="width:200px;height:100px"/> </a> 
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+         <a href="#"> <img src="heath.png" style="width:200px;height:100px"/> </a> <br></br>
+         
+           
+         <div class="pure-g" id="longwood" style="display:none">
+             <div class="pure-u-l">
+                     
+              <p class="ppp"><a href="https://www.google.com/maps/place/Dorchester,+Boston,+MA/@42.3018056,-71.0913156,13z/data=!3m1!4b1!4m2!3m1!1s0x89e37a491ade8bb3:0x86feaf1d8bbc4238" target="_blank"><h3>Dorchester, Boston, United States</a> </h3></p>
+                <br>
+                <p id="list-margin">
+            <a href="picsHouses/longwood1.jpg" rel="prettyPhoto[pp_gal]" title="Awesome Arizona!"><img class="effectfront" src="picsHouses/longwood1.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="picsHouses/longwood2.jpg" rel="prettyPhoto[pp_gal]"><img  class="effectfront"src="picsHouses/longwood2.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="picsHouses/longwood3.jpg" rel="prettyPhoto[pp_gal]"><img class="effectfront" src="picsHouses/longwood3.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="picsHouses/longwood14.jpg" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="picsHouses/longwood4.jpg" width="60" height="60" alt="longwood!" /></a>
+            </p>
+            <br></br>
+            <img src="picsHouses/longwoodgps.png" width="800" height="500" alt="longwood!" />
+       
+             </div>
+             </div>  
+
+       
+
+             
+
+
+             <div class="pure-g" id="allston" style="display:none">
+             <div class="pure-u-l">
+            
+                     
+              <p class="ppp"><a href="https://www.google.com/maps/place/Allston,+Boston,+MA+02134/@42.360197,-71.1447386,14z/data=!3m1!4b1!4m2!3m1!1s0x89e379cfbae0c321:0xebfcd6fb7acb4e8e" target="_blank"> <h3>Allston, Boston, United States</h3></a> 
+
+              </p>
+              <br>
+               <p id="list-margin" >
+            <a href="picsHouses/fenway.jpg" rel="prettyPhoto[pp_gal]" title="Awesome Arizona!"><img  class="effectfront" src="picsHouses/fenway.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="picsHouses/fenway2.jpeg" rel="prettyPhoto[pp_gal]"><img class="effectfront" src="picsHouses/fenway2.jpeg" width="60" height="60" alt="longwood!" /></a>
+            <a href="picsHouses/fenway3.jpg" rel="prettyPhoto[pp_gal]"><img  class="effectfront"src="picsHouses/fenway3.jpeg" width="60" height="60" alt="longwood!" /></a>
+            <a href="picsHouses/longwood14.jpg" rel="prettyPhoto[pp_gal]"><img class="effectfront" src="picsHouses/longwood4.jpg" width="60" height="60" alt="longwood!" /></a>
+            </p>
+            <br></br>
+            <img src="picsHouses/allston.png" width="800" height="500" alt="longwood!" />
+       
+             </div>
+             </div>  
+
+
+
+               <div class="pure-g" id="fenway" style="display:none">
+             <div class="pure-u-l">
+            
+                     
+              <p class="ppp"><a href="https://www.google.com/maps/place/Fenway,+Boston,+MA+02115/@42.3387293,-71.0993058,17z/data=!3m1!4b1!4m2!3m1!1s0x89e37a2074a0ba89:0xc610e421dea6ccf0" target="_blank"> <h3>Fenway, Boston, United States</h3></a> 
+
+              </p>
+              <br>
+               <p id="list-margin" >
+            <a href="picsHouses/fenway.jpg" rel="prettyPhoto[pp_gal]" title="Awesome Arizona!"><img  class="effectfront" src="picsHouses/fenway.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="picsHouses/fenway2.jpeg" rel="prettyPhoto[pp_gal]"><img class="effectfront" src="picsHouses/fenway2.jpeg" width="60" height="60" alt="longwood!" /></a>
+            <a href="picsHouses/fenway3.jpg" rel="prettyPhoto[pp_gal]"><img  class="effectfront"src="picsHouses/fenway3.jpeg" width="60" height="60" alt="longwood!" /></a>
+            <a href="picsHouses/longwood14.jpg" rel="prettyPhoto[pp_gal]"><img class="effectfront" src="picsHouses/longwood4.jpg" width="60" height="60" alt="longwood!" /></a>
+            </p>
+            <br></br>
+            <img src="picsHouses/allston.png" width="800" height="500" alt="longwood!" />
+       
+             </div>
+             </div>  
+
+
+       
+
+             </div>
+             </div>
+
+
+
+  </div>
+
+ 
+
+
+
+
+
+
+  <footer class="footer-distributed">
+
+      <div class="footer-left">
+
+       <h3>NEU<span> Easy Rental</span></h3>
+
+        <p class="footer-links">
+          <a href="#">Home</a>
+          ·
+          <a href="#">Blog</a>
+          ·
+          <a href="#">Pricing</a>
+          ·
+          <a href="#">About</a>
+          ·
+          <a href="#">Faq</a>
+          ·
+          <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Company Name &copy; 2015</p>
+      </div>
+
+      <div class="footer-center">
+
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>21 Revolution Street</span> Paris, France</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>+1 555 123456</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:support@company.com">support@company.com</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span>About the company</span>
+            Student Rental is House/Property Rental Portal. Focus is on providing reliable data to home seekers.
+        </p>
+
+        <div class="footer-icons">
+
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-github"></i></a>
+
+        </div>
+
+      </div>
+
+    </footer>
+</div>
+</body>
+</html>

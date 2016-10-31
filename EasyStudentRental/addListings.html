@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>NEU BNB</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link href="chelseaCss.css" rel="stylesheet">
+    <link href="addListings.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  
+
+  </head>
+  
+  <script>
+  $(function() {
+    var spinner = $( "#spinner1" ).spinner();
+  });
+  </script>
+  <script>
+  $(function() {
+    var spinner = $( "#spinner2" ).spinner();
+  });
+  </script>
+  
+  
+
+<body>
+<div id="mainDiv" class="container-fluid">
+
+
+
+
+<nav class="navbar navbar-default">
+   <div class="container-fluid">
+     <!-- Brand and toggle get grouped for better mobile display -->
+     <div class="navbar-header">
+       
+       <a class="navbar-brand" href="home.html" target="_top">NEU Easy Rental</a>
+     </div>
+     <!-- Collect the nav links, forms, and other content for toggling -->
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <ul class="nav navbar-nav">
+         <li ><a href="home.html">HOME<span class="sr-only">(current)</span></a></li>
+         <li><a href="about.html" target="_top">ABOUT US</a></li>
+           <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">PROFILE
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="profileUpdate.html">PROFILE UPDATE</a></li>
+          <li><a href="addListings.html">ADD LISTING</a></li>
+          <li><a href="myListings1.html">MY LISTINGS</a></li>
+        </ul>
+      </li>
+          <li><a href="search.html" target="_top">SEARCH</a></li>
+          <li><a href="listing.html" target="_top">ACTIVE AREAS</a></li>
+		  <li><a href="gallery.html" target="_top">GALLERY</a></li>
+		  <li><a href="features.html" target="_top">DOCUMENTATION</a></li>
+
+       </ul>
+  
+   <ul class="nav navbar-nav navbar-right">
+        <li><a href="signUp.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="signIn.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+
+     </div><!-- /.navbar-collapse -->
+   </div><!-- /.container-fluid -->
+ </nav>
+
+
+ <div class="container-fluid" id="addListing">
+  
+  <div class="main_form" id="mainform">
+  <div class="form-panel col-xs-11 col-sm-8 col-centered">
+        <!-- ngIf: !user -->
+        <h3>Add Listings</h3>
+
+        <!--{{user}}-->
+        <div class="form-holder">
+            <form name="listingForm" novalidate="" class="ng-invalid ng-invalid-required ng-dirty ng-valid-parse" action="addListings.php" method="post">
+                <div class="listing-details clearfix">
+                    <div class="form-group col-xs-11 col-sm-3 type">
+                        <label for="property-type">Type *</label>
+                        <select name="roomtype" id="property-type" ng-model="propertyType" class="form-control ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" required="">
+                            <option value="APT">Apartment</option>
+                            <option value="CON">Condo</option>
+                            <option value="TOW">Town House</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-xs-11 col-sm-3">
+                        <label for="spinner">Bed *</label>
+                        <input id = "spinner1" name="bed">
+                    </div>
+                    <div class="form-group col-xs-11 col-sm-3">
+                        <label for="spinner">Bath *</label>
+                        <input id = "spinner2" name="bath">
+                    </div>
+                    <div class="form-group col-xs-11 no-padding">
+                        <label for="autocomplete">Address *</label>
+                        <input id="autocomplete" name="address" g-places-autocomplete="" class="form-control ng-valid ng-isolate-scope ng-dirty ng-touched" ng-model="place" ng-change="autocompleteResponse()" placeholder="Enter your address" type="text">
+
+                        
+                        <div class="form-group no-padding">
+                            <label for="addr2">Address 2</label>
+                            <input type="text" name="address2" id="addr2" class="form-control" placeholder="Contd" >
+                        </div>
+                        <div class="form-group col-xs-5 col-sm-3 city">
+                            <label for="city">City</label>
+                            <input type="text" id="city" class="form-control"  placeholder="City" name="city" >
+                        </div>
+                        <div class="form-group col-xs-5 col-sm-3">
+                            <label for="state">State</label>
+                            <input type="text" id="state" class="form-control"  placeholder="State" name="state">
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-4 zip">
+                            <label for="zip">Zip Code</label>
+                            <input type="text" id="zip" class="form-control"  placeholder="XXXXX" name="zipcode">
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-11 no-padding">
+                        <label for="rent">Rent/mo *</label>
+                        <input type="text" id="rent" class="form-control ng-pristine ng-untouched ng-valid" ng-model="rent" placeholder="$XXXX" name= "rent">
+                    </div>
+                </div>
+
+                <div class="listing-props">
+                    <div class="image-upload">
+                        <label for="upload">Upload Images</label>
+                        <a class="btn btn-custom" role="button" data-toggle="modal" data-target="#upload-modal" id="upload">Upload</a>
+
+                        <div class="modal fade" id="upload-modal" tabindex="-1" role="dialog" aria-labelledby="upload-images" style="display: none;">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Upload Images</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="choose">Select images to upload</label>
+                                            <a class="btn btn-info" role="button" id="choose">Choose images</a>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" class="btn btn-primary">Upload</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="misc-details clearfix">
+                        <div class="form-wrap col-xs-12 no-padding">
+                            <div class="form-group col-sm-6 no-padding">
+                                <label for="heat-included">Heat Included? *</label>
+
+                                <div class="radio" id="heat-included">
+                                    <label>
+                                        <input type="radio" name="heat" id="heat" ng-model="heat" ng-value="true" class="ng-pristine ng-untouched ng-valid" value="true">Yes
+                                    </label>
+
+                                    <label class="option-no">
+                                        <input type="radio" name="heat" id="no-heat" ng-model="heat" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6 no-padding">
+                                <label for="heat-included">Pets? *</label>
+
+                                <div class="radio" id="pets-allowed">
+                                    <label>
+                                        <input type="radio" name="pets" id="pets" ng-model="pets" ng-value="true" class="ng-pristine ng-untouched ng-valid" value="true">Yes
+                                    </label>
+
+                                    <label class="option-no">
+                                        <input type="radio" name="pets" id="no-pets" ng-model="pets" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-wrap col-xs-12 no-padding">
+                            <div class="form-group col-sm-6 no-padding">
+                                <label for="heat-included">Gym? *</label>
+
+                                <div class="radio" id="gym-available">
+                                    <label>
+                                        <input type="radio" name="gym" id="gym" ng-model="gym" ng-value="true" class="ng-pristine ng-untouched ng-valid" value="true">
+                                        Yes
+                                    </label>
+
+                                    <label class="option-no">
+                                        <input type="radio" name="gym" id="no-gym" ng-model="gym" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6 no-padding">
+                                <label for="heat-included">Parking? *</label>
+
+                                <div class="radio" id="parking-available">
+                                    <label>
+                                        <input type="radio" name="parking" id="parking" ng-model="parking" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">
+                                        Yes
+                                    </label>
+
+                                    <label class="option-no">
+                                        <input type="radio" name="parking" id="no-parking" ng-model="parking" ng-value="false" class="ng-pristine ng-untouched ng-valid" value="false">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-11 no-padding">
+                            <label for="desc">Description</label>
+                            <textarea name="description" id="desc" cols="12" rows="3" class="form-control ng-pristine ng-untouched ng-valid" ng-model="description" placeholder="(Optional) Anything you want to add about your property"></textarea>
+                        </div>
+
+                        <button class="btn btn-custom" type="submit" name="Submit" ng-click="addListing()" role="button" ng-disabled="!user || !listingForm.$valid" id="add-listing">Add Listing</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  
+  
+</div>
+</div>
+
+
+
+<footer class="footer-distributed">
+
+      <div class="footer-left">
+
+        <h3>NEU<span> Easy Rental</span></h3>
+
+        <p class="footer-links">
+          <a href="#">Home</a>
+          ·
+          <a href="#">Blog</a>
+          ·
+          <a href="#">Pricing</a>
+          ·
+          <a href="#">About</a>
+          ·
+          <a href="#">Faq</a>
+          ·
+          <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Company Name &copy; 2015</p>
+      </div>
+
+      <div class="footer-center">
+
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>75 Saint Alphonsus Street</span> Boston, MA</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>+1 555 123456</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:support@neubnb.com">support@neubnb.com</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span>About the company</span>
+          Student Rental is House/Property Rental Portal. Focus is on providing reliable data to home seekers.
+        </p>
+
+        <div class="footer-icons">
+
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-github"></i></a>
+
+        </div>
+
+      </div>
+
+    </footer>   
+</div>
+ </body>
+ </html>
